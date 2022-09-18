@@ -226,11 +226,29 @@ function runCommand(command, module){
 			}else{
 				console.log("Error: cannot find variable with name "+name)
 			}
+		} else if(module.startsWith("var copy")){
+			let space=command.indexOf(" ");
+			let name=command.substr(0,space)
+			let value=command.substr(space+1)
+			let variable=findVariable(name);
+			if(variable>-1){
+				let copy=findVariable(value);
+				if(copy>-1){
+					variables[variable].isObject=variables[copy].isObject;
+				variables[variable].value=variables[copy].value
+				}else{
+					console.log("Error: cannot find variable with name "+value)
+				}
+			}else{
+				console.log("Error: cannot find variable with name "+name)
+			}
 		}else{ 
 			if(command.startsWith("new")){
 				runCommand(command.substr(4),"var new")
 			}else if(command.startsWith("set")){
 				runCommand(command.substr(4),"var set")
+			}else if(command.startsWith("copy")){
+				runCommand(command.substr(5),"var copy")
 			}
 		}
 	}else if(module.startsWith("condition")){
