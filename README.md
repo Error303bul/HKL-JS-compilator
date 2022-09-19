@@ -11,7 +11,6 @@ It has all things what you need, just use the ```translator(hkl)``` function. It
 ["$ console write Hello world!","$ console write Goodbye world!"]
 ```
 
-**WARNING! STRINGS DOESN`T NEED TO BE ENDED BY ; BUT IN CODING YOU NEED TO KEEP IT**
 
 ## Basics
 
@@ -50,4 +49,16 @@ To write variable value to console you need to use console procedure debug:
   $ var new Name;
   $ var set Name Ann;
   $ console debug Name;
+```
+
+If you have to much variables, and you need to copy one of their values to other variable use ```$ var copy``` function:
+
+```
+ Creating a variables
+ $ var new Age;
+ $ var new age;
+ $ var set Age 15;
+ $ var copy Age age;
+ $ console debug age;
+ 15;
 ```
