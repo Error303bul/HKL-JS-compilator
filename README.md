@@ -5,10 +5,10 @@ HKL is data-working and saving language which can help you to store your datas
 
 When installing the HCL translator, you only need to use the file ```translator.js```.
 
-It has all things what you need, just use the ```translator(hkl)``` function. It need string converted to array, example:
+It has all things what you need, just use the ```interpretator(hkl)``` function. It need hkl file as one string, example:
 
 ```
-["$ console write Hello world!","$ console write Goodbye world!"]
+"$ console write Hello world!;$ console write Goodbye world!;"
 ```
 
 
