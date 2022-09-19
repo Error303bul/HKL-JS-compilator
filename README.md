@@ -103,3 +103,14 @@ Condition has some commands and it works only with variables. It can have only t
 - "=" **input1** **input2** - if the variables named **input1** and **input2** has a same values, true, if not - false
 - ">" **input1** **input2** - if **input1** value is greater than **input2** value then true, else - false
 - "<" **input1** **input2** - if **input2** value is greater than  **input1** value then true, else - false
+
+You can debug value of condition by using ```$ console condition``` Example:
+
+```
+$ var new zero
+$ var new i
+$ var set zero 0
+$ var set i 5
+$ condition > i zero
+$ console condition;
+```
