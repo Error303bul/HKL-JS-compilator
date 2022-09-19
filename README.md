@@ -77,6 +77,7 @@ List of the procedures:
 - multiply - multiply value of calculating by **input**
 - divide - dividing value of calculating by **input**
 - write - setting the value of variable **input** to calculation value
+- copy - copies value of variable **input** to calculation value
 
 Example. Debugging the 5+5 result:
 
