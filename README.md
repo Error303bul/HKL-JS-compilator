@@ -100,6 +100,6 @@ Condition is the most critical thing in HKL. It has own module - condition.
 Condition has some commands and it works only with variables. It can have only tow statements: true or false. List of the procedures.
 
 - reverse - switching condition value to opposite, like "NOT" operator.
-- = **input1** **input2** - if the variables named **input1** and **input2** has a same values, true, if not - false
-- > **input1** **input2** - if **input1** value is greater than **input2** value then true, else - false
-- < **input1** **input2** - if **input2** value is greater than  **input1** value then true, else - false
+- "=" **input1** **input2** - if the variables named **input1** and **input2** has a same values, true, if not - false
+- ">" **input1** **input2** - if **input1** value is greater than **input2** value then true, else - false
+- "<" **input1** **input2** - if **input2** value is greater than  **input1** value then true, else - false
