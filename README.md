@@ -155,3 +155,23 @@ What if we wan`t to create a loop? Just use a move module. It has just few proce
 
 - to - moving to line **input**
 - by - moving to line **current line**+**input**
+
+Just few procedures, but them can do very much tasks.
+
+Example loop:
+```
+$ var new index;
+$ var set index 10;
+$ calculation set 10;
+$ var new zero;
+$ var set 0;
+$ calculation substract 1;
+$ calculation write index;
+$ console debug index;
+$ condition > index zero;
+$ if condition;
+$ move to 5;
+$ end if 9;
+```
+
+It debugging everu number from 9 to 0.
