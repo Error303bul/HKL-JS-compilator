@@ -54,12 +54,11 @@ To write variable value to console you need to use console procedure debug:
 If you have to much variables, and you need to copy one of their values to other variable use ```$ var copy``` function:
 
 ```
- Creating a variables
- $ var new Age
+$ var new Age
 $ var new newAge
 $ var set Age 15
 $ var copy newAge Age
-First-where top copy second-from copy
 $ console debug newAge;
- 15;
 ```
+
+First-where to copy, second-from copy
