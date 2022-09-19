@@ -242,3 +242,35 @@ $ var new Tom;
 $ object write Tom;
 $ console debug Tom;
 ```
+
+### Extending class
+
+Sometimes you need to add values from one class to other class. You need to use ```extends (target class) (from class) ``` procedure. It resets **target class** attributes and adding all of **from class** attributes. So if you have some attributes in the **from class** it has been deleted:
+
+```
+$ class new Person;
+$ class add Person Name;
+$ class add Person Age;
+$ object new Person;
+$ object attribute parse Age 20;
+$ object attribute parse Name Bill;
+$ var new i;
+$ object write i;
+$ object new Person;
+$ object attribute parse Age 15;
+$ object attribute parse Name Ann;
+$ var new t;
+$ object write t;
+$ class new Employment;
+$ class extends Employment Person;
+$ class add Employment Company;
+$ object new Employment;
+$ object attribute parse Age 30;
+$ object attribute parse Name Tom;
+$ object attribute parse Company Apple;
+$ var new d;
+$ object write d;
+$ console debug i
+$ console debug t
+$ console debug d;
+```
