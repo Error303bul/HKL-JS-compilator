@@ -114,3 +114,35 @@ $ var set i 5
 $ condition > i zero
 $ console condition;
 ```
+
+### IF, END IF
+
+What if we want to create a real branch? All what we need is **IF** and **END IF** block.
+
+To create an IF block you need:
+
+1. Print ```$ if```
+2. Print condition or any value
+3. Print ```$ end if (line with if block-1)```
+
+Examles:
+
+```
+$ if False;
+$ end if 0;
+if is on first line so you need to print 0 (because 1-1 is 0 obvisiosly);
+```
+
+Second with condition:
+
+```
+$ var new zero
+$ var new i
+$ var set zero 0
+$ var set i 5
+$ condition > i zero
+$ if condition;
+$ console write Hello;
+$ end if 5;
+only writing if condition is not false
+```
