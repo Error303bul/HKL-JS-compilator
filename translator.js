@@ -441,6 +441,21 @@ function runCommand(command, module){
 		}
 	}
 }
+
+function interpretate(text){
+	let list=[];
+	let string=""
+	for(let i in text){
+		if((text[i]==";")||(text[i]=="\n")){
+			list.push(string)
+			string="";
+		}else if(!((text[i]=="\t")||(text[i]=="\r"))){
+			string+=text[i];
+		}
+	}
+	translator(list)
+}
+
 function translator(text){
 	run=text;
 	variables=[];

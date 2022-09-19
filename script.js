@@ -1,8 +1,6 @@
 var reader = new FileReader();
 var file=[]
 
-//import * from "./decode.js"
-
 function listToHTML(list){
 	let result = "";
 	for(let i in list){
@@ -31,15 +29,12 @@ copytext.onclick=async function(){
 	}
 }
 
-function deleteAllSpecial(text){
-	return text.replaceAll("\n","").replaceAll("\t","").replaceAll("\r","")
-}
 reader.onload = function() {
 	var fileText=reader.result
 	let string="";
 	if(input.files[0].name.endsWith(".hkl")){
 		file=decode(fileText)
-		translator(stringToList(deleteAllSpecial(fileText),";"))
+		interpretate(fileText)
 	}else if(input.files[0].name.endsWith(".ehkl")){
 		try{
 			file=encode(fileText)
