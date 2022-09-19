@@ -192,7 +192,7 @@ function runCommand(command, module){
 			reading+=Number(command)-1
 		}else if(module.startsWith("move to")){
 			reading=Number(command)-1
-		}else if(module.startsWith("breakpoint")){
+		}else if(module.startsWith("move breakpoint")){
 			for(let i in run){
 				if(run[i].substr(1).trim()=="breakpoint "+command){
 					reading=i
