@@ -18,7 +18,7 @@ Command are started by $. If you don`t print it, translator will just skip this 
 
 ### Writing to console
 
-To write a message to the console, you need to access the console module and call the write procedure. Example:
+To write a message to the console, you need to access the **console** module and call the **write** procedure. Example:
 
 ```
  $ console write Hello world!;
@@ -28,7 +28,7 @@ You don`t need to put quotation marks. In ```console write``` procedure ,it call
 
 ### Variables and debugging
 
-To create variable in the **HKL** you need to use from var module new procedure. It create new variable with name (value after procedure).
+To create variable in the **HKL** you need to use from **var** module **new** procedure. It create new variable with name (value after procedure).
 
 ```
  $ var new Var;
