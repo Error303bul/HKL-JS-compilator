@@ -55,10 +55,11 @@ If you have to much variables, and you need to copy one of their values to other
 
 ```
  Creating a variables
- $ var new Age;
- $ var new age;
- $ var set Age 15;
- $ var copy Age age;
- $ console debug age;
+ $ var new Age
+$ var new newAge
+$ var set Age 15
+$ var copy newAge Age
+First-where top copy second-from copy
+$ console debug newAge;
  15;
 ```
