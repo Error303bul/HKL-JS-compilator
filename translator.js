@@ -447,7 +447,11 @@ function interpretate(text){
 	let string=""
 	for(let i in text){
 		if((text[i]==";")||(text[i]=="\n")){
-			list.push(string)
+			if(string.length>0){
+				if(string[0]=="$"){
+					list.push(string)
+				}
+			}
 			string="";
 		}else if(!((text[i]=="\t")||(text[i]=="\r"))){
 			string+=text[i];
