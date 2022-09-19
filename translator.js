@@ -168,6 +168,14 @@ function runCommand(command, module){
 			}else{
 				console.log("Error: cannot find variable with name "+command)
 			}
+		} else if(module.startsWith("calculation copy")){
+			for(let i in variables){
+				if(variables[i].name==command){
+					calculation=Number(variables[i].value)
+					return null
+				}
+			}
+			console.log("Error: couldn`t find variable with name "+command)
 		}else{
 			if(command.startsWith("reset")){
 				runCommand("","calculation reset")
@@ -185,6 +193,8 @@ function runCommand(command, module){
 				console.log(calculation)
 			}else if(command.startsWith("write")){
 				runCommand(command.substr(6),"calculation write")
+			} else if(command.startsWith("copy")){
+				runCommand(command.substr(5),"calculation copy")
 			}
 		}
 	}else if(module.startsWith("move")){
