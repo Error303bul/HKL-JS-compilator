@@ -192,11 +192,21 @@ function runCommand(command, module){
 			reading+=Number(command)-1
 		}else if(module.startsWith("move to")){
 			reading=Number(command)-1
+		}else if(module.startsWith("breakpoint")){
+			for(let i in run){
+				if(run[i].substr(1).trim()=="breakpoint "+command){
+					reading=i
+					return null
+				}
+			}
+			console.log("Error: cannot find breakpoint with name "+command)
 		}else{
 			if(command.startsWith("by")){
 				runCommand(command.substr(3),"move by")
 			}else if(command.startsWith("to")){
 				runCommand(command.substr(3),"move to")
+			}else if(command.startsWith("breakpoint")){
+				runCommand(command.substr(11),"move breakpoint")
 			}
 		}
 	}else if(module.startsWith("if")){
