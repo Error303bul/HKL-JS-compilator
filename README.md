@@ -190,7 +190,7 @@ $ console write Goodbye world!;
 Hello world! Goodbye world!;
 ```
 
-The code after the breakpoint it just a simple code same to without breakpoint. But you can use ```move breakpoint (name)``` procedure to move to the (name) breakpoint. If it`s breakpoint doesn`t exist you got an error. Example loop using the break point:
+The code after the breakpoint it just a simple code same to without breakpoint. But you can use ```move breakpoint (name)``` procedure to move to the (name) breakpoint. If this breakpoint does not exist you got an error. Example loop using the break point:
 
 ```
 $ var new zero
