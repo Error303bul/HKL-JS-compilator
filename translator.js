@@ -393,6 +393,8 @@ function runCommand(command, module){
 			if(module=="object attribute"){
 				if(command.startsWith("set")){
 					runCommand(command.substr(4),"object attribute set")
+				}else if(command.startsWith("parse")){
+					runCommand(command.substr(6),"object attribute parse")
 				}
 			}else if(module.startsWith("object attribute set")){
 				let space=command.indexOf(" ");
@@ -407,6 +409,26 @@ function runCommand(command, module){
 							if(objects[target].attributes[i].name==first){
 								objects[target].attributes[i].value=variables[findVariable(second)].value;
 								objects[target].attributes[i].isObject=variables[findVariable(second)].isObject;
+								return 0;
+							}
+						}
+						console.log("Error: attribute not found")
+					}else{
+						console.log("Error: cannot find object")
+					}
+				}
+			}else if(module.startsWith("object attribute parse")){
+				let space=command.indexOf(" ");
+				if(space==-1){
+					console.log("Error: cannot find the space")
+				}else{
+					let first=command.substr(0,space)
+					let second=command.substr(space+1)
+					let target=getObjectIdByLink(lastObjectLink)
+					if(target>-1){
+						for(let i in objects[target].attributes){
+							if(objects[target].attributes[i].name==first){
+								objects[target].attributes[i].value=second
 								return 0;
 							}
 						}
