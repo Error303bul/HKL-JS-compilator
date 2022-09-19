@@ -175,3 +175,70 @@ $ end if 9;
 ```
 
 It debugging everu number from 9 to 0.
+
+## Object-oriented programming
+
+Like a much of coding launguages, HKL has an OOP system. It one of the most important system which can help you in coding.
+
+### Creating class and object
+
+To create an object you need to use ```$ class new (name);``` procedure. To create a new object you need to use ```$ object new (class name);``` procedure. Example:
+
+```
+$ class new Person;
+$ object new Person;
+```
+
+Lately, you will learn what it object stores to last object, and has a it own link which generates randomly.
+
+### Creating an attribute for class. Setting an attribute value.
+
+Classes are useless without an attributes, right? To create an attribute for class you need to use ```$ class add (class name) (attribute name)``` procedure:
+
+```
+$ class new Person;
+$ class add Person Age;
+$ class add Person Name;
+$ object new Person;
+```
+
+Remember what if you create an attribute after than object, object doesn`t will have it!
+
+```
+$ class new Person;
+$ class add Person Age;
+$ object new Person;
+$ class add Person Name;
+object doesn`t have Name attribute;
+```
+
+If you want to change variable value you need to use ```attribute``` submodule and ```set``` or ```parse``` procedure. First one will copy variable value to attribute, second-copy second input:
+
+```
+$ class new Person;
+$ class add Person Age;
+$ class add Person Name;
+$ object new Person;
+$ var new StartName;
+$ var set StartName Tom;
+$ object set Name StartName;
+$ object parse Age 20;
+```
+
+### Storing object info in variables
+
+If you wan`t to debug object info into console you need to store his link into variable using ```$ object write (var name)``` . It stores choosed object (last created) link to variable. If you want to get info about of this variable you get this object:
+
+```
+$ class new Person;
+$ class add Person Age;
+$ class add Person Name;
+$ object new Person;
+$ var new StartName;
+$ var set StartName Tom;
+$ object attribute set Name StartName;
+$ object attribute parse Age 20;
+$ var new Tom;
+$ object write Tom;
+$ console debug Tom;
+```
