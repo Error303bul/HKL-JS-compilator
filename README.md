@@ -146,3 +146,12 @@ $ console write Hello;
 $ end if 5;
 only writing if condition is not false
 ```
+
+
+### Move Module
+Last thing in this chapter is move module.
+
+What if we wan`t to create a loop? Just use a move module. It has just few procedures:
+
+- to - moving to line **input**
+- by - moving to line **current line**+**input**
