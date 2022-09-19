@@ -62,3 +62,27 @@ $ console debug newAge;
 ```
 
 First-where to copy, second-from copy
+
+### Calculation module
+
+One of the most important thing in programming is math. To make mathematic procedures you need to use calculation module.
+
+List of the procedures:
+
+- reset - reseting value of calculating to 0
+- set - setting value of calculating to **input**
+- add - increasing value of calculating by **input**
+- substract - decreasing value of calculating by **input**
+- multiply - multiply value of calculating by **input**
+- divide - dividing value of calculating by **input**
+- write - setting the value of variable **input** to calculation value
+
+Example. Debugging the 5+5 result:
+
+```
+$ calculation set 5;
+$ calculation add 5;
+$ var new result;
+$ calculation write result;
+$ console debug result;
+```
