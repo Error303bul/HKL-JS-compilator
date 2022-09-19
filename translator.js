@@ -8,6 +8,19 @@ let calculation=0
 let run=[];
 let condition=true;
 
+function getVariableValue(name){
+	for(let x in variables){
+		if(variables[x].name=name){
+			if(variables[x].isObject){
+				return objects[getObjectIdByLink(variables[x].value)]
+			}else{
+				return variables[x].value
+			}
+		}
+	}
+	return null
+}
+
 function getObjectIdByLink(link){
 	let result=-1;
 	for(let i in objects){
