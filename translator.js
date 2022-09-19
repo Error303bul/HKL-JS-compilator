@@ -35,7 +35,7 @@ function getObjectIdByLink(link){
 function objectToString(link){
 	let result=""
 	for(let i in objects){
-		if(objects[i].getLink=link){
+		if(objects[i].getLink()==link){
 			for(let x in objects[i].attributes){
 				result+=objects[i].attributes[x].name+=":";
 				if(objects[i].attributes[x].isObject){
@@ -84,11 +84,11 @@ class Object{
 class Class{
 	name=""
 	attributes=[]
-	newAtribute(name){
+	newAtribute(name, value, isObject){
 		let x=[3]
 		x[0]=name
-		x[1]=""
-		x[2]=false;
+		x[1]=value
+		x[2]=isObject;
 		this.attributes.push(x)
 	}
 }
@@ -335,6 +335,8 @@ function runCommand(command, module){
 				runCommand(command.substr(4),"class new")
 			}else if(command.startsWith("add")){
 				runCommand(command.substr(4),"class add")
+			}else if(command.startsWith("extends")){
+				runCommand(command.substr(8),"class extends")
 			}
 		}else if(module.startsWith("class new")){
 			if(module=="class new"){
@@ -376,6 +378,33 @@ function runCommand(command, module){
 					classes[targetClass].newAtribute(name);
 				}else{
 					console.log("Error: already exist attribute with name "+name+" in class "+target)
+				}
+			}else{
+				console.log("Error: class with name "+target+" not found")
+			}
+		}else if(module.startsWith("class extends")){
+			let space=command.indexOf(" ")
+			let target=command.substr(0,space)
+			let name=command.substr(space+1);
+			let targetClass=-1
+			for(let check in classes){
+				if(classes[check].name==target){
+					targetClass=check;
+					break;
+				}
+			}
+			if(targetClass!=-1){
+				let fromClass=-1;
+				for(let check in classes){
+					if(classes[check].name=name){
+						fromClass=check
+						break;
+					}
+				}
+				if(fromClass>-1){
+					classes[targetClass].attributes=classes[fromClass].attributes
+				}else{
+					console.log("Error: class with name "+name+" not found")
 				}
 			}else{
 				console.log("Error: class with name "+target+" not found")
