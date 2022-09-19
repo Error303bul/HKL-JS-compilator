@@ -177,6 +177,38 @@ $ end if 9;
 
 It debugging everu number from 9 to 0.
 
+### Breakpoints
+
+Sometimes it can be hard to use **to** or **by** procedures, because it need to be very accurate. If you want to make your work easier you can use the breakpoints.
+
+Breakpoint it`s a simple code mark which has it own name. If you many of breakpoints with same name, only first declared will be used. To create a breakpoint use procedure ```breakpoint (name)``` Example:
+
+```
+$ console write Hello world!;
+$ breakpoint GoodBye;
+$ console write Goodbye world!;
+Hello world! Goodbye world!;
+```
+
+The code after the breakpoint it just a simple code same to without breakpoint. But you can use ```move breakpoint (name)``` procedure to move to the (name) breakpoint. If it`s breakpoint doesn`t exist you got an error. Example loop using the break point:
+
+```
+$ var new zero
+$ var set zero 0
+$ var new index
+$ calculation set 100
+$ breakpoint Tick
+$ calculation write index
+$ console debug index
+$ calculation substract 1
+$ condition > index zero
+$ if condition
+$ move breakpoint Tick
+$ end if 9;
+```
+
+It debugging every number from 100 to 0
+
 ## Object-oriented programming
 
 Like a much of coding launguages, HKL has an OOP system. It one of the most important system which can help you in coding.
