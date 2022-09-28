@@ -1,9 +1,9 @@
 # HKL-JS-translator
-HKL is data-working and saving language which can help you to store your datas
+HKL is data-working and saving commpilating language which can help you to store your datas
 
 ## Starting
 
-When installing the HCL translator, you only need to use the file ```translator.js```.
+When installing the HCL compilator, you only need to use the file ```translator.js```.
 
 It has all things what you need, just use the ```interpretator(hkl)``` function. It need hkl file as one string, example:
 
