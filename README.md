@@ -78,6 +78,7 @@ List of the procedures:
 - divide - dividing value of calculating by **input**
 - write - setting the value of variable **input** to calculation value
 - copy - copies value of variable **input** to calculation value
+- power - find a power **input** of calculation
 
 Example. Debugging the 5+5 result:
 
