@@ -99,6 +99,22 @@ class Variable{
 	isObject=false
 }
 
+function getEndIf(start){
+	let i=start+1
+	while(i<run.length){
+		if(run[i][0]=="$"){
+			if(run[i].substring(1).trim()=="end if"){
+				return i;
+			}
+			if(run[i].substring(1).trimStart().substring(0,2)=="if"){
+				i=getEndIf(i)
+			}
+		}
+		i++;
+	}
+	return -1;
+}
+
 function findVariable(name){
 	for(let x in variables){
 		if(variables[x].name==name){
@@ -272,7 +288,12 @@ function runCommand(command, module){
 						return 0;
 					}
 				}
-				console.log("Error: doesn`t found $ end if "+reading)
+				let result=getEndIf(reading)
+				if(result>-1){
+					reading=result
+				}else{
+					console.log("Error: doesn`t found $ end if "+reading)
+				}
 			}
 		}else{
 			if(command.startsWith("condition")){
