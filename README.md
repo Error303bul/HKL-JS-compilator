@@ -164,6 +164,18 @@ $ end if 5;
 only writing if condition is not false
 ```
 
+In version 1.9 or higher, you do not need to write line of **if** command in **end if** command. It can make your work much easier:
+
+```
+$ var new i
+$ var new s
+$ var set i 5
+$ var set s 4
+$ condition = i s
+$ if condition
+$ console write true
+$ end if;
+```
 
 ### Move Module
 Last thing in this chapter is move module.
