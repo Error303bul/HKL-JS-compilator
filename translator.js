@@ -192,6 +192,16 @@ function runCommand(command, module){
 					calculation/=Number(command);
 				}
 			}
+		} else if(module.startsWith("calculation power")){
+			if(module.startsWith("calculation power var")){
+				calculation=Math.pow(calculation,Number(getVariableValue(command)))
+			}else{
+				if(command.startsWith("var")){
+					runCommand(command.substr(4),"calculation power var")
+				}else{
+					calculation=Math.pow(calculation,Number(command))
+				}
+			}
 		} else if(module.startsWith("calculation write")){
 			let index=findVariable(command)
 			if(index>-1){
@@ -227,6 +237,8 @@ function runCommand(command, module){
 				runCommand(command.substr(6),"calculation write")
 			} else if(command.startsWith("copy")){
 				runCommand(command.substr(5),"calculation copy")
+			} else if(command.startsWith("power")){
+				runCommand(command.substr(6),"calculation power")
 			}
 		}
 	}else if(module.startsWith("move")){
