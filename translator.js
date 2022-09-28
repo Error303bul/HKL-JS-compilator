@@ -153,13 +153,45 @@ function runCommand(command, module){
 		}else if(module.startsWith("calculation set")){
 			calculation=Number(command)
 		}else if(module.startsWith("calculation add")){
-			calculation+=Number(command);
+			if(module.startsWith("calculation add var")){
+				calculation+=Number(getVariableValue(command))
+			}else{
+				if(command.startsWith("var")){
+					runCommand(command.substr(4),"calculation add var")
+				}else{
+					calculation+=Number(command);
+				}
+			}
 		}else if(module.startsWith("calculation substract")){
-			calculation-=Number(command);
+			if(module.startsWith("calculation substract var")){
+				calculation-=Number(getVariableValue(command))
+			}else{
+				if(command.startsWith("var")){
+					runCommand(command.substr(4),"calculation substract var")
+				}else{
+					calculation-=Number(command);
+				}
+			}
 		} else if(module.startsWith("calculation multiply")){
-			calculation*=Number(command);
+			if(module.startsWith("calculation multiply var")){
+				calculation*=Number(getVariableValue(command))
+			}else{
+				if(command.startsWith("var")){
+					runCommand(command.substr(4),"calculation multiply var")
+				}else{
+					calculation*=Number(command);
+				}
+			}
 		} else if(module.startsWith("calculation divide")){
-			calculation/=Number(command)
+			if(module.startsWith("calculation divide var")){
+				calculation/=Number(getVariableValue(command))
+			}else{
+				if(command.startsWith("var")){
+					runCommand(command.substr(4),"calculation divide var")
+				}else{
+					calculation/=Number(command);
+				}
+			}
 		} else if(module.startsWith("calculation write")){
 			let index=findVariable(command)
 			if(index>-1){
