@@ -1,4 +1,4 @@
-# HKL-JS-translator
+# HKL JS Compilator
 HKL is data-working and saving commpilating language which can help you to store your datas
 
 ## Starting
