@@ -89,6 +89,20 @@ $ calculation write result;
 $ console debug result;
 ```
 
+But if we want to work with variables? You need to put **var** keyword in front of variable name:
+
+```
+$ var new five;
+$ var set five 5;
+$ var new result;
+$ calculation copy five;
+$ calculation divide var five;
+$ calculation write result;
+$ console debug result;
+```
+
+It debugging variable divided by self. It works with any operation.
+
 ## Branching
 
 If you need to work with different data you need sometimes to branching your code. It`s one of the most important thing in coding. In the HKL you also can keep your code with branch
