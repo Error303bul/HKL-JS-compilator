@@ -8,6 +8,12 @@ let calculation=0
 let run=[];
 let condition=true;
 let loop
+let inputValues=[]
+let inputVal
+
+function addInput(value){
+	inputValues.push(value)
+}
 
 function getVariableValue(name){
 	for(let x in variables){
@@ -143,6 +149,8 @@ function runCommand(command, module){
 			runCommand(command.substr(6),"class")
 		}else if(command.startsWith("object")){
 			runCommand(command.substr(7),"object")
+		}else if(command.startsWith("input")){
+			runCommand(command.substr(6),"input")
 		}
 	}else if(module.startsWith("console")){
 		if(module.startsWith("console write")){
@@ -567,6 +575,33 @@ function runCommand(command, module){
 				}
 			}
 		}
+	}else if(module.startsWith("input")){
+		if(module=="input"){
+			if(command.startsWith("get")){
+				runCommand(command.substr(4),"input get")
+			}else if(command.startsWith("write")){
+				runCommand(command.substr(6),"input write")
+			}
+		}else if(module=="input get"){
+			let i=Number(command)
+			if((i>-1)&&(i<inputValues.length)){
+				if(typeof inputValues[i]=="object" || typeof inputValues[i]=="function"){
+					console.log("Input error: Type of input cannot be object or functio")
+				}else{
+					inputVal=inputValues[i]
+				}
+			}else{
+				console.log("Input error: can not find input with id "+i)
+			}
+		}else if(module=="input write"){
+			let varId=findVariable(command)
+			if(varId>-1){
+				variables[varId].isObject=false
+				variables[varId].value=inputVal
+			}else{
+				console.log("Variable error: Cannot find variable with name "+command)
+			}
+		}
 	}
 }
 
@@ -608,6 +643,7 @@ function translator(text){
 	calculation=0
 	reading=0
 	condition=true;
+	inputVal=""
 	loop=setInterval(oneRun,10)
 }
 
@@ -615,5 +651,6 @@ function end(){
 	if(loop!=null){
 		clearInterval(loop)
 		loop=null
+		inputValues=[]
 	}
 }
