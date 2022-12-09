@@ -7,6 +7,7 @@ let lastObjectLink=""
 let calculation=0
 let run=[];
 let condition=true;
+let loop
 
 function getVariableValue(name){
 	for(let x in variables){
@@ -587,6 +588,17 @@ function interpretate(text){
 	translator(list)
 }
 
+function oneRun(){
+	if(run[reading][0]!='$'){
+		return
+	}
+	runCommand(run[reading].substring(1).trim(),"")
+	reading++;
+	if(reading>run.length-1){
+		end()
+	}
+}
+
 function translator(text){
 	run=text;
 	variables=[];
@@ -596,11 +608,12 @@ function translator(text){
 	calculation=0
 	reading=0
 	condition=true;
-	while(reading<text.length){
-		if(text[reading][0]!='$'){
-			continue;
-		}
-		runCommand(text[reading].substring(1).trim(),"")
-		reading++;
+	loop=setInterval(oneRun,10)
+}
+
+function end(){
+	if(loop!=null){
+		clearInterval(loop)
+		loop=null
 	}
 }
