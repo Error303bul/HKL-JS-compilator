@@ -347,4 +347,4 @@ To create an input in JS you need to use ```addInput(value)``` function. As argu
 
 If you using online compiler, you need to put your value in first textarea
 
-![Does not loaded](https://github.com/Error303bul/HKL-JS-compilator/blob/image/README_INFO_INPUT_SITE.png?raw=true)
+![Input example](/README_INFO_INPUT_SITE.png?raw=true)
