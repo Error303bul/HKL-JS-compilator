@@ -348,3 +348,55 @@ To create an input in JS you need to use ```addInput(value)``` function. As argu
 If you using online compiler, you need to put your value in first textarea
 
 ![Input example](/README_INFO_INPUT_SITE.png?raw=true)
+
+## Getting and storing input
+
+To use input you shall use ```input``` module.
+
+To get input by id you need to use ```input get %number%```. 
+
+To store gotten input in variable you need to use ```input write %var name%```. Example:
+
+```
+$ var new i;
+$ var new j;
+$ var new r;
+$ input get 0;
+$ input write i;
+$ input get 1;
+$ input write j;
+$ calculation copy i;
+$ calculation add var j;
+$ calculation write r;
+$ console debug r;
+```
+
+It sums first and second input.
+
+### Stopping loop with input
+
+In update 1.95 you can make infinite loops without lags:
+
+```
+$ breakpoint tick;
+$ console write Normal;
+$ move breakpoint tick;
+```
+
+And you can stop it using input values:
+
+```
+$ console write Started;
+$ var new i;
+$ var new one;
+$ var set one 1;
+$ breakpoint tick;
+$ input get 0;
+$ input write i;
+$ condition = i one;
+$ condition reverse;
+$ if condition;
+$ move breakpoint tick;
+$ end if;
+$ console write Ended;
+```
