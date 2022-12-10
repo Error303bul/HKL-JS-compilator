@@ -335,3 +335,14 @@ $ console debug i
 $ console debug t
 $ console debug d;
 ```
+
+## Input module
+
+If you need to make your program more interactive, you shall use Input module.
+
+### Creating an input
+
+To create an input in JS you need to use ```addInput(value)``` function. As argument it takes any not object or function value.
+
+
+If you using online compiler, you need to put your value in first textarea
