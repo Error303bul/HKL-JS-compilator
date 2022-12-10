@@ -17,7 +17,7 @@ function addInput(value){
 
 function getVariableValue(name){
 	for(let x in variables){
-		if(variables[x].name=name){
+		if(variables[x].name==name){
 			if(variables[x].isObject){
 				return objects[getObjectIdByLink(variables[x].value)]
 			}else{
